@@ -10,6 +10,7 @@ when defined(windows):
 
 proc exec*(path: string, params: seq[string]): int {.discardable.} =
     var c_params = allocCStringArray(@[string(Path(path).splitFile().name)] & params)
+    defer: deallocCStringArray(c_params)
 
     when defined(posix):
         result = execvp(path.cstring, c_params)
@@ -17,5 +18,3 @@ proc exec*(path: string, params: seq[string]): int {.discardable.} =
         result = win_execvp(path.cstring, c_params).int
     else:
         raise newException(OSError, "OS not supported.")
-
-    deallocCStringArray(c_params)
