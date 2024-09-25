@@ -5,8 +5,9 @@
 
 # normal ignores:
 *.exe
+htmldocs
 nimcache
+nimblecache
 *.pdb
 *.ilk
 *.out
-.*
