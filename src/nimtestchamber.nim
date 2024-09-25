@@ -4,4 +4,4 @@ import nimtestchamber/common
 
 import std/cmdline
 
-exec("/usr/bin/echo", commandLineParams())
+exec("echo", commandLineParams())
