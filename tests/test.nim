@@ -7,7 +7,7 @@ let cmd = when defined(windows):
 else:
     "nimtestchamber"
 
-test "Run nimbletestchamber command":
+test "Run nimtestchamber command":
     var (output, status) = execCmdEx(&"bin/{cmd} foo bar")
     check status == 0
     output.stripLineEnd()
