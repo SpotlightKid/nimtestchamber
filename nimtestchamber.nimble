@@ -10,3 +10,6 @@ requires "nim >= 2.0.0"
 bin = @["nimtestchamber"]
 
 binDir = "bin"
+
+before test:
+    exec("nimble build")
