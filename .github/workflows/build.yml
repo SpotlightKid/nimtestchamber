@@ -15,5 +15,7 @@ jobs:
       with:
         nim-version: 'stable'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: nimble test -y
-    - run: nimble test --mm:orc -y
+    - name: "Build binaries"
+      run: nimble build --mm:orc -d:release -y
+    - name: "Run tests"
+      run: nimble test --mm:orc -y
